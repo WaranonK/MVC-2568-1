@@ -1,6 +1,7 @@
 package kmitl.cs.mvc.controller;
 
 import kmitl.cs.mvc.model.*;
+import kmitl.cs.mvc.view.Admin.AdminJobListView;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -49,7 +50,10 @@ public class AdminController {
         }
         return out;
     }
-
+    public void showJobList() {
+        Map<String, Long> appCounts = countApplicationsPerJob();
+        new AdminJobListView(main.getJobs(), main, appCounts);
+    }
     // count applications per job
     public Map<String, Long> countApplicationsPerJob() {
         return main.getApplications().stream().collect(Collectors.groupingBy(Application::getJobId, Collectors.counting()));

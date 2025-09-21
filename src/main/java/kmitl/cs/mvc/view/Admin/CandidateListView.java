@@ -27,15 +27,34 @@ public class CandidateListView extends JPanel {
         refresh();
         add(new JScrollPane(table), BorderLayout.CENTER);
 
+        // Panel สำหรับปุ่มต่าง ๆ
+        JPanel btnPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+
         JButton btnView = new JButton("ดูรายละเอียดผู้สมัคร");
-        add(btnView, BorderLayout.SOUTH);
+        JButton btnJobs = new JButton("ดูตำแหน่งงาน");
+
+        btnPanel.add(btnView);
+        btnPanel.add(btnJobs);
+        add(btnPanel, BorderLayout.SOUTH);
+
+        // กดดูรายละเอียดผู้สมัคร
         btnView.addActionListener(e -> {
             int r = table.getSelectedRow();
-            if (r<0) { JOptionPane.showMessageDialog(this,"กรุณาเลือกผู้สมัคร"); return; }
+            if (r<0) {
+                JOptionPane.showMessageDialog(this,"กรุณาเลือกผู้สมัคร");
+                return;
+            }
             String candidateId = (String) model.getValueAt(r,0);
-            CandidateDetailView detail = new CandidateDetailView((Frame)SwingUtilities.getWindowAncestor(this), main, candidateId);
+            CandidateDetailView detail = new CandidateDetailView(
+                    (Frame)SwingUtilities.getWindowAncestor(this), main, candidateId);
             detail.setVisible(true);
         });
+
+        // กดไปหน้าดูตำแหน่งงาน
+        btnJobs.addActionListener(e -> {
+            controller.showJobList();  // เรียกไปเปิด AdminJobListView
+        });
+
     }
 
     public void refresh() {
