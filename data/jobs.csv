@@ -1,0 +1,12 @@
+jobId,title,description,companyId,deadline,status
+20000001,Software Engineer,Backend development and APIs,10000001,2025-12-01,OPEN
+20000002,Frontend Developer,React and UI development,10000001,2025-11-15,OPEN
+20000003,QA Engineer,Test automation and QA,10000001,2025-10-20,CLOSED
+20000004,DevOps Engineer,CI/CD and Cloud infra,10000002,2025-12-10,OPEN
+20000005,Data Scientist,ML models and analysis,10000002,2025-11-30,OPEN
+20000006,Data Analyst,SQL reporting and dashboards,10000002,2025-10-25,OPEN
+20000007,System Administrator,Server maintenance and monitoring,10000002,2025-09-30,CLOSED
+20000008,Mobile Developer,Android/iOS apps,10000002,2025-12-05,OPEN
+20000009,UI/UX Designer,Design systems and prototypes,10000001,2025-11-05,OPEN
+20000010,Intern,Support tasks and documentation,10000002,2026-01-15,OPEN
+20000011,Machine Learning Engineer,Design systems related to ML,10000001,2025-09-20,OPEN

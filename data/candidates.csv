@@ -1,0 +1,12 @@
+candidateId,username,password,firstName,lastName,email,isAdmin
+30000001,john123,password123,John,Doe,john@example.com,false
+30000002,somchai,1234,Somchai,Chaiyaporn,somchai/..3@example.com,false
+30000003,somsri,somsriPwd,Somsri,Prasert,somsri_Mangmee@example.com,false
+30000004,nawin,nawinPwd,Nawin,Kongyu,nawin2005@example.com,false
+30000005,ploy,pployploy,Ploy,Petchngam,ploy_ploy@example.com,false
+30000006,may,0998728987,Maymanee,Meesuk,may@example.com,false
+30000007,tanawat,tanawatPasswordkrab,Tanawat,Tawornkuert,tanawat_k@example.com,false
+30000008,nicha,nichaPwd,Nicha,Su,nicha@example.com,false
+30000009,patcha,patchaonStage,Patcha,Nongnapa,patchyXD007za@example.com,false
+30000010,admin,adminpass123,Admin,User,admin@example.com,true
+30000011,nirakorn,nira888,Nirakorn,Pornprasert,nira23@example.com,false
