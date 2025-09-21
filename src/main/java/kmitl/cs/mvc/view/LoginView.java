@@ -27,15 +27,15 @@ public class LoginView extends JFrame {
         c.insets = new Insets(6,6,6,6);
         c.fill = GridBagConstraints.HORIZONTAL;
 
-        JLabel lblUser = new JLabel("ชื่อผู้ใช้งาน:");
+        JLabel lblEmail = new JLabel("อีเมล:");
         JLabel lblPass = new JLabel("รหัสผ่าน:");
-        JTextField txtUser = new JTextField();
+        JTextField txtEmail = new JTextField();
         JPasswordField txtPass = new JPasswordField();
         JButton btnLogin = new JButton("เข้าสู่ระบบ");
         JButton btnExit = new JButton("ออก");
 
-        c.gridx=0; c.gridy=0; p.add(lblUser,c);
-        c.gridx=1; c.gridy=0; c.weightx=1.0; p.add(txtUser,c);
+        c.gridx=0; c.gridy=0; p.add(lblEmail,c);
+        c.gridx=1; c.gridy=0; c.weightx=1.0; p.add(txtEmail,c);
         c.gridx=0; c.gridy=1; c.weightx=0; p.add(lblPass,c);
         c.gridx=1; c.gridy=1; c.weightx=1.0; p.add(txtPass,c);
 
@@ -46,9 +46,9 @@ public class LoginView extends JFrame {
         add(p);
 
         btnLogin.addActionListener(e -> {
-            String user = txtUser.getText().trim();
+            String email = txtEmail.getText().trim();
             String pass = new String(txtPass.getPassword());
-            var cand = auth.login(user, pass);
+            var cand = auth.loginByEmail(email, pass);
             if (cand != null) {
                 main.setCurrentUser(cand);
                 // open main view
@@ -58,7 +58,7 @@ public class LoginView extends JFrame {
                     dispose();
                 });
             } else {
-                JOptionPane.showMessageDialog(this, "ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง");
+                JOptionPane.showMessageDialog(this, "อีเมลหรือรหัสผ่านไม่ถูกต้อง");
             }
         });
 

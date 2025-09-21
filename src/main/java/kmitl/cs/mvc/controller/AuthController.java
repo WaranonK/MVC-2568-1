@@ -2,6 +2,7 @@ package kmitl.cs.mvc.controller;
 
 
 import kmitl.cs.mvc.model.Candidate;
+import kmitl.cs.mvc.model.Validation;
 
 public class AuthController {
     private final MainController main;
@@ -10,11 +11,17 @@ public class AuthController {
         this.main = main;
     }
 
-    // Return candidate if login success, else null
-    public Candidate login(String username, String password) {
-        if (username == null || password == null) return null;
+    // login by email + password, return Candidate if success, else null
+    public Candidate loginByEmail(String email, String password) {
+        if (email == null || password == null) return null;
+        String norm = Validation.normalizeEmail(email);
+        if (!Validation.isValidEmail(norm)) return null;
+
         return main.getCandidates().stream()
-                .filter(c -> c.getUsername().equalsIgnoreCase(username.trim()) && password.equals(c.getPassword()))
+                .filter(c -> {
+                    String cEmail = c.getEmail()==null? "": c.getEmail().trim().toLowerCase();
+                    return cEmail.equals(norm) && password.equals(c.getPassword());
+                })
                 .findFirst().orElse(null);
     }
 }

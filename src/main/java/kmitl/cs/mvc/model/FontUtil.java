@@ -6,10 +6,10 @@ import java.io.InputStream;
 import java.util.Enumeration;
 
 public class FontUtil {
-    /**
-     * พยายามโหลดฟอนต์จาก resourcePath (เช่น "/fonts/Sarabun-Regular.ttf").
-     * ถ้าโหลดไม่ได้ จะใช้ fallbackName (เช่น "Tahoma").
-     * จากนั้นตั้งเป็น default ของ UIManager
+    /*
+      พยายามโหลดฟอนต์จาก resourcePath (เช่น "/fonts/Sarabun-Regular.ttf").
+      ถ้าโหลดไม่ได้ จะใช้ fallbackName (เช่น "Tahoma").
+      จากนั้นตั้งเป็น default ของ UIManager
      */
     public static void setGlobalFont(String resourcePath, String fallbackName, float size) {
         Font base = null;

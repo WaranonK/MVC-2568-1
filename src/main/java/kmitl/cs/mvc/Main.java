@@ -8,7 +8,6 @@ import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
-        // Run UI on EDT
         SwingUtilities.invokeLater(() -> {
             try {
                 FontUtil.setGlobalFont("/fonts/Sarabun-Regular.ttf", "Tahoma", 14f);
