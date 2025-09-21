@@ -16,11 +16,11 @@ public class CandidateDetailView extends JDialog {
     private final DefaultTableModel model;
 
     public CandidateDetailView(Frame owner, MainController main, String candidateId) {
-        super(owner, "Candidate Detail", true);
+        super(owner, "รายละเอียดผู้สมัคร", true);
         this.main = main;
         this.controller = new AdminController(main);
         this.candidateId = candidateId;
-        model = new DefaultTableModel(new String[]{"JobId","Title","Company","AppliedDate"},0) {
+        model = new DefaultTableModel(new String[]{"รหัสตำแหน่งงาน","ตำแหน่งที่เปิดรับ","บริษัท","วันที่สมัคร"},0) {
             public boolean isCellEditable(int r,int c){ return false; }
         };
         init();
@@ -34,7 +34,7 @@ public class CandidateDetailView extends JDialog {
         var candOpt = main.findCandidateById(candidateId);
         if (candOpt.isPresent()) {
             var c = candOpt.get();
-            JLabel lbl = new JLabel("Candidate: " + c.getFullName() + " (" + c.getUsername() + ")");
+            JLabel lbl = new JLabel("ผู้สมัคร: " + c.getFullName() + " (" + c.getUsername() + ")");
             p.add(lbl, BorderLayout.NORTH);
         }
 
@@ -42,7 +42,7 @@ public class CandidateDetailView extends JDialog {
         p.add(new JScrollPane(table), BorderLayout.CENTER);
 
         JPanel bottom = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-        JButton btnClose = new JButton("Close");
+        JButton btnClose = new JButton("ปิด");
         bottom.add(btnClose);
         p.add(bottom, BorderLayout.SOUTH);
         add(p);

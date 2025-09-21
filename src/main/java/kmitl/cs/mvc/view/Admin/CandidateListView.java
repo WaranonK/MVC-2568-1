@@ -20,18 +20,18 @@ public class CandidateListView extends JPanel {
         this.main = main;
         this.controller = new AdminController(main);
         setLayout(new BorderLayout());
-        model = new DefaultTableModel(new String[]{"CandidateId","Name","Username","Email"}, 0) {
+        model = new DefaultTableModel(new String[]{"รหัสผู้สมัคร","ชื่อผู้สมัคร","ชื่อผู้ใช้งาน","อีเมล"}, 0) {
             public boolean isCellEditable(int r,int c){return false;}
         };
         table = new JTable(model);
         refresh();
         add(new JScrollPane(table), BorderLayout.CENTER);
 
-        JButton btnView = new JButton("View Details");
+        JButton btnView = new JButton("ดูรายละเอียดผู้สมัคร");
         add(btnView, BorderLayout.SOUTH);
         btnView.addActionListener(e -> {
             int r = table.getSelectedRow();
-            if (r<0) { JOptionPane.showMessageDialog(this,"Select a candidate"); return; }
+            if (r<0) { JOptionPane.showMessageDialog(this,"กรุณาเลือกผู้สมัคร"); return; }
             String candidateId = (String) model.getValueAt(r,0);
             CandidateDetailView detail = new CandidateDetailView((Frame)SwingUtilities.getWindowAncestor(this), main, candidateId);
             detail.setVisible(true);

@@ -21,7 +21,7 @@ public class JobView extends JPanel {
         this.main = main;
         this.controller = new CandidateController(main);
         setLayout(new BorderLayout());
-        model = new DefaultTableModel(new String[]{"JobId","Title","Company","Deadline","Action"},0) {
+        model = new DefaultTableModel(new String[]{"รหัสตำแหน่งงาน","ตำแหน่งที่เปิดรับ","บริษัท","วันสมัครสุดท้าย",""},0) {
             public boolean isCellEditable(int row,int col){ return false; }
         };
         table = new JTable(model);
@@ -30,7 +30,7 @@ public class JobView extends JPanel {
         JScrollPane sp = new JScrollPane(table);
         add(sp, BorderLayout.CENTER);
 
-        JButton btnApply = new JButton("Apply Selected");
+        JButton btnApply = new JButton("สมัครตำแหน่ง");
         add(btnApply, BorderLayout.SOUTH);
 
         btnApply.addActionListener(e -> {

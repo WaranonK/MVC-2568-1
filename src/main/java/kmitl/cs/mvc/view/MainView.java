@@ -18,7 +18,7 @@ public class MainView extends JFrame {
 
     private void init() {
         Candidate cur = main.getCurrentUser();
-        setTitle("JobFair - Main (" + (cur!=null?cur.getFullName():"") + ")");
+        setTitle("Job Fair - หน้าหลัก (" + (cur!=null?cur.getFullName():"") + ")");
         setSize(1000, 600);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

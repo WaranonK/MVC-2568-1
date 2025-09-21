@@ -14,7 +14,7 @@ public class ApplyJobView extends JDialog {
     private final String jobId;
 
     public ApplyJobView(Window owner, MainController main, String jobId) {
-        super(owner, "Apply Job", ModalityType.APPLICATION_MODAL);
+        super(owner, "สมัครเข้าตำแหน่งงาน", ModalityType.APPLICATION_MODAL);
         this.main = main;
         this.controller = new CandidateController(main);
         this.jobId = jobId;
@@ -36,18 +36,18 @@ public class ApplyJobView extends JDialog {
             info.setEditable(false);
             p.add(new JScrollPane(info), BorderLayout.CENTER);
         } else {
-            p.add(new JLabel("Job not found"), BorderLayout.CENTER);
+            p.add(new JLabel("ไม่พบตำแหน่งงาน"), BorderLayout.CENTER);
         }
 
         JPanel buttons = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-        JButton btnConfirm = new JButton("Confirm Apply");
-        JButton btnCancel = new JButton("Cancel");
+        JButton btnConfirm = new JButton("ยืนยันการสมัคร");
+        JButton btnCancel = new JButton("ยกเลิกการสมัคร");
         buttons.add(btnConfirm); buttons.add(btnCancel);
         p.add(buttons, BorderLayout.SOUTH);
         add(p);
 
         btnConfirm.addActionListener(e -> {
-            if (cur == null) { JOptionPane.showMessageDialog(this, "No current user"); return; }
+            if (cur == null) { JOptionPane.showMessageDialog(this, "ไม่พบผู้ใช้งาน"); return; }
             String res = controller.applyToJob(jobId, cur.getCandidateId());
             JOptionPane.showMessageDialog(this, res);
             if (res.equals("สมัครสำเร็จ")) {

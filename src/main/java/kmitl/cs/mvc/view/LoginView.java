@@ -17,7 +17,7 @@ public class LoginView extends JFrame {
     }
 
     private void init() {
-        setTitle("JobFair - Login");
+        setTitle("JobFair - ลงทะเบียน");
         setSize(360, 220);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -27,12 +27,12 @@ public class LoginView extends JFrame {
         c.insets = new Insets(6,6,6,6);
         c.fill = GridBagConstraints.HORIZONTAL;
 
-        JLabel lblUser = new JLabel("Username:");
-        JLabel lblPass = new JLabel("Password:");
+        JLabel lblUser = new JLabel("ชื่อผู้ใช้งาน:");
+        JLabel lblPass = new JLabel("รหัสผ่าน:");
         JTextField txtUser = new JTextField();
         JPasswordField txtPass = new JPasswordField();
-        JButton btnLogin = new JButton("Login");
-        JButton btnExit = new JButton("Exit");
+        JButton btnLogin = new JButton("เข้าสู่ระบบ");
+        JButton btnExit = new JButton("ออก");
 
         c.gridx=0; c.gridy=0; p.add(lblUser,c);
         c.gridx=1; c.gridy=0; c.weightx=1.0; p.add(txtUser,c);
